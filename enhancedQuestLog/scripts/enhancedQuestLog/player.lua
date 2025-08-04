@@ -15,7 +15,7 @@ end
 
 local function getCurrentQuests()
   for id,quest in pairs(types.Player.quests(self)) do
-    if quest.started and not quest.finished then
+    if core.dialogue.journal.records[quest.id].questName and quest.started and not quest.finished then
       table.insert(currentQuests, quest)
     end
   end
