@@ -1,11 +1,13 @@
 local self = require("openmw.self")
+local core = require("openmw.core")
 local types = require("openmw.types")
 
 local currentQuests = {}
 
 function printQuests(quests)
   for id,quest in pairs(quests) do
-      print("found member " .. id .. " -- " .. tostring(quest) .. " stage = " .. quest.stage .. " finished = " .. tostring(quest.finished) .. " started = " .. tostring(quest.started));
+      dialogueRecord = core.dialogue.journal.records[quest.id]
+      print("found member " .. id .. " -- " .. tostring(quest) .. " stage = " .. quest.stage .. " finished = " .. tostring(quest.finished) .. " started = " .. tostring(quest.started) .. " quest name = " .. tostring(dialogueRecord.questName));
   end
 end
 
