@@ -28,6 +28,7 @@ function moveGoldFromContainerInventoryToPlayerInventory()
     for _, item in ipairs(goldContainer) do
       core.sendGlobalEvent("addItemInPlayerInventory",{item = item, player = self.object})    
     end
+    self:sendEvent('SetUiMode', {})
   end
   return
 end
