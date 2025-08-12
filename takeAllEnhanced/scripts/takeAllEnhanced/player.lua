@@ -30,18 +30,9 @@ function getAllContainerGold()
   goldContainer = containerInventory:findAll('gold_001')
 end
 
-function takeAllItemsFromContainer()
-  if itemsContainer ~= nil then
-    for _, item in ipairs(itemsContainer) do
-      core.sendGlobalEvent("addItemInPlayerInventory",{item = item, player = self.object})    
-    end
-    self:sendEvent('SetUiMode', {})
-  end
-end
-
-function takeAllGoldFromContainer()
-  if goldContainer ~= nil then
-    for _, item in ipairs(goldContainer) do
+function takeAllItemFromContainerThenCloseIt(container)
+  if container ~= nil then
+    for _, item in ipairs(container) do
       core.sendGlobalEvent("addItemInPlayerInventory",{item = item, player = self.object})    
     end
     self:sendEvent('SetUiMode', {})
@@ -49,18 +40,18 @@ function takeAllGoldFromContainer()
 end
 
 local function checkEntryAndHandleTakeAll(code)
-  local keyForTakeAllGold = configPlayer.options.s_Key_Gold
   local keyForTakeAllItems = configPlayer.options.s_Key_All
+  local keyForTakeAllGold = configPlayer.options.s_Key_Gold
   if UI.getMode() ~= "Container" then
     return
   end
   if code == keyForTakeAllGold then
-    takeAllGoldFromContainer()
+    takeAllItemFromContainerThenCloseIt(goldContainer)
     return
   end
-
+  
   if code == keyForTakeAllItems then
-    takeAllItemsFromContainer()
+    takeAllItemFromContainerThenCloseIt(itemsContainer)
     return
   end
 
