@@ -3,4 +3,5 @@ ConfigSummary: "You can now take all specific item in a container with one keybi
 
 ConfigKeybindings: "Shortcuts attached to Take All"
 ConfigKeybindingsDesc: "You can assign key binding to Take All specific items in containers."
+Key_All: "Keybinding to take all items"
 Key_Gold: "Keybinding to take all gold"

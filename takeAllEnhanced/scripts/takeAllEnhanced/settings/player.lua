@@ -153,6 +153,13 @@ I.Settings.registerGroup {
     permanentStorage = true,
     settings = {        
         {
+            key = 's_Key_All',
+            renderer = 'inputSelection',            
+            name = 'Key_All',
+            description = 'All',
+            default = 0,
+        },
+        {
             key = 's_Key_Gold',
             renderer = 'inputSelection',            
             name = 'Key_Gold',
