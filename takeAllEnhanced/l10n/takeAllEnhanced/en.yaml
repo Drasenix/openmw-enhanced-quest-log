@@ -1,0 +1,6 @@
+ConfigTitle: "Take All Enhanced (TAE)"
+ConfigSummary: "You can now take all specific item in a container with one keybinding."
+
+ConfigKeybindings: "Shortcuts attached to Take All"
+ConfigKeybindingsDesc: "You can assign key binding to Take All specific items in containers."
+Key_Gold: "Keybinding to take all gold"
