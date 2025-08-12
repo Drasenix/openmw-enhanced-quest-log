@@ -14,4 +14,8 @@ Launch the game
 
 # How to use
 
-Nexus Mod
+Go to the Script tab in the options, select Take All Enhanced and choose the shortcuts you want.
+
+In the game, you can now use shortcuts to quickly Take All items of a specific type.
+
+# Nexus Mod
