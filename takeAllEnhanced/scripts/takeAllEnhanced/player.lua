@@ -3,6 +3,7 @@ local types = require('openmw.types')
 local UI = require('openmw.interfaces').UI
 local configPlayer = require('scripts.takeAllEnhanced.config.player')
 local self = require('openmw.self')
+local core = require('openmw.core')
 
 local currentContainer = nil
 local goldContainer = nil
@@ -23,9 +24,10 @@ function getAllContainerGold()
 end
 
 function moveGoldFromContainerInventoryToPlayerInventory()
-  for _, item in ipairs(goldContainer) do
-    print(item.id)
-    item:moveInto(types.Actor.inventory(self.object))
+  if goldContainer ~= nil then
+    for _, item in ipairs(goldContainer) do
+      core.sendGlobalEvent("addItemInPlayerInventory",{item = item, player = self.object})    
+    end
   end
   return
 end

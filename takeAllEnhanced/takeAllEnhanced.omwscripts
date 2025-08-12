@@ -1,2 +1,3 @@
 PLAYER: scripts/takeAllEnhanced/player.lua
+GLOBAL: scripts/takeAllEnhanced/global.lua
 MENU: scripts/takeAllEnhanced/settings/player.lua
