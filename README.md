@@ -19,3 +19,5 @@ Go to the Script tab in the options, select Take All Enhanced and choose the sho
 In the game, you can now use shortcuts to quickly Take All items of a specific type from a container.
 
 # Nexus Mod
+
+https://www.nexusmods.com/morrowind/mods/57288
