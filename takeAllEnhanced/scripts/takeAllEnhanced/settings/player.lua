@@ -166,5 +166,12 @@ I.Settings.registerGroup {
             description = 'Key_Gold',
             default = 0,
         },
+        {
+            key = 's_Key_Ingredients',
+            renderer = 'inputSelection',            
+            name = 'Ingredients',
+            description = 'Key_Ingredients',
+            default = 0,
+        },        
     },
 }
