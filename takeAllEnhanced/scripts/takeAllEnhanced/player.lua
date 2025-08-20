@@ -107,12 +107,11 @@ function getAllContainerLight()
 end
 
 
-function takeAllItemFromContainerThenCloseIt(container)
+function takeAllItemFromContainer(container)
   if container ~= nil then
     for _, item in ipairs(container) do
       core.sendGlobalEvent("addItemInPlayerInventory",{item = item, player = self.object})    
     end
-    self:sendEvent('SetUiMode', {})
   end
 end
 
@@ -156,64 +155,84 @@ local function checkEntryAndHandleTakeAll(code)
   local keyForTakeAllApparatus = configPlayer.options.s_Key_Apparatus
   local keyForTakeAllLight = configPlayer.options.s_Key_Light
   
+  local closeContainer = false
   if code == keyForTakeAllGold then
-    takeAllItemFromContainerThenCloseIt(goldContainer)
+    takeAllItemFromContainer(goldContainer)
+    closeContainer = true
   end
   
   if code == keyForTakeAllItems then
-    takeAllItemFromContainerThenCloseIt(itemsContainer)
+    takeAllItemFromContainer(itemsContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllIngredients then
-    takeAllItemFromContainerThenCloseIt(ingredientsContainer)
+    takeAllItemFromContainer(ingredientsContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllBooks then
-    takeAllItemFromContainerThenCloseIt(booksContainer)
+    takeAllItemFromContainer(booksContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllScrolls then
-    takeAllItemFromContainerThenCloseIt(scrollsContainer)
+    takeAllItemFromContainer(scrollsContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllWeapons then
-    takeAllItemFromContainerThenCloseIt(weaponsContainer)
+    takeAllItemFromContainer(weaponsContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllMiscellaneous then
-    takeAllItemFromContainerThenCloseIt(miscellaneousContainer)
+    takeAllItemFromContainer(miscellaneousContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllLockpick then
-    takeAllItemFromContainerThenCloseIt(lockpickContainer)
+    takeAllItemFromContainer(lockpickContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllProbe then
-    takeAllItemFromContainerThenCloseIt(probeContainer)
+    takeAllItemFromContainer(probeContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllPotion then
-    takeAllItemFromContainerThenCloseIt(potionContainer)
+    takeAllItemFromContainer(potionContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllRepair then
-    takeAllItemFromContainerThenCloseIt(repairContainer)
+    takeAllItemFromContainer(repairContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllClothing then
-    takeAllItemFromContainerThenCloseIt(clothingContainer)
+    takeAllItemFromContainer(clothingContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllArmor then
-    takeAllItemFromContainerThenCloseIt(armorContainer)
+    takeAllItemFromContainer(armorContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllApparatus then
-    takeAllItemFromContainerThenCloseIt(apparatusContainer)
+    takeAllItemFromContainer(apparatusContainer)
+    closeContainer = true
   end
 
   if code == keyForTakeAllLight then
-    takeAllItemFromContainerThenCloseIt(lightContainer)
+    takeAllItemFromContainer(lightContainer)
+    closeContainer = true
+  end
+
+  if closeContainer then
+    self:sendEvent('SetUiMode', {})
   end
 
 end
