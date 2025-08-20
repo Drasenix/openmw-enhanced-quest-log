@@ -5,6 +5,8 @@ local configPlayer = require('scripts.takeAllEnhanced.config.player')
 local self = require('openmw.self')
 local core = require('openmw.core')
 
+local closeContainer = false
+
 local currentContainer = nil
 local goldContainer = nil
 local itemsContainer = nil
@@ -108,11 +110,13 @@ end
 
 
 function takeAllItemFromContainer(container)
-  if container ~= nil then
+  if container ~= nil and #container > 0 then
     for _, item in ipairs(container) do
       core.sendGlobalEvent("addItemInPlayerInventory",{item = item, player = self.object})    
     end
+    core.sendGlobalEvent("playSound",{player = self.object})
   end
+  closeContainer = true
 end
 
 local function getContainersItem()
@@ -155,80 +159,65 @@ local function checkEntryAndHandleTakeAll(code)
   local keyForTakeAllApparatus = configPlayer.options.s_Key_Apparatus
   local keyForTakeAllLight = configPlayer.options.s_Key_Light
   
-  local closeContainer = false
+  closeContainer = false
   if code == keyForTakeAllGold then
-    takeAllItemFromContainer(goldContainer)
-    closeContainer = true
+    takeAllItemFromContainer(goldContainer)    
   end
   
   if code == keyForTakeAllItems then
-    takeAllItemFromContainer(itemsContainer)
-    closeContainer = true
+    takeAllItemFromContainer(itemsContainer)    
   end
 
   if code == keyForTakeAllIngredients then
-    takeAllItemFromContainer(ingredientsContainer)
-    closeContainer = true
+    takeAllItemFromContainer(ingredientsContainer)    
   end
 
   if code == keyForTakeAllBooks then
-    takeAllItemFromContainer(booksContainer)
-    closeContainer = true
+    takeAllItemFromContainer(booksContainer)    
   end
 
   if code == keyForTakeAllScrolls then
-    takeAllItemFromContainer(scrollsContainer)
-    closeContainer = true
+    takeAllItemFromContainer(scrollsContainer)    
   end
 
   if code == keyForTakeAllWeapons then
-    takeAllItemFromContainer(weaponsContainer)
-    closeContainer = true
+    takeAllItemFromContainer(weaponsContainer)    
   end
 
   if code == keyForTakeAllMiscellaneous then
-    takeAllItemFromContainer(miscellaneousContainer)
-    closeContainer = true
+    takeAllItemFromContainer(miscellaneousContainer)    
   end
 
   if code == keyForTakeAllLockpick then
-    takeAllItemFromContainer(lockpickContainer)
-    closeContainer = true
+    takeAllItemFromContainer(lockpickContainer)    
   end
 
   if code == keyForTakeAllProbe then
-    takeAllItemFromContainer(probeContainer)
-    closeContainer = true
+    takeAllItemFromContainer(probeContainer)    
   end
 
   if code == keyForTakeAllPotion then
-    takeAllItemFromContainer(potionContainer)
-    closeContainer = true
+    takeAllItemFromContainer(potionContainer)    
   end
 
   if code == keyForTakeAllRepair then
-    takeAllItemFromContainer(repairContainer)
-    closeContainer = true
+    takeAllItemFromContainer(repairContainer)    
   end
 
   if code == keyForTakeAllClothing then
-    takeAllItemFromContainer(clothingContainer)
-    closeContainer = true
+    takeAllItemFromContainer(clothingContainer)    
   end
 
   if code == keyForTakeAllArmor then
-    takeAllItemFromContainer(armorContainer)
-    closeContainer = true
+    takeAllItemFromContainer(armorContainer)    
   end
 
   if code == keyForTakeAllApparatus then
-    takeAllItemFromContainer(apparatusContainer)
-    closeContainer = true
+    takeAllItemFromContainer(apparatusContainer)    
   end
 
   if code == keyForTakeAllLight then
-    takeAllItemFromContainer(lightContainer)
-    closeContainer = true
+    takeAllItemFromContainer(lightContainer)    
   end
 
   if closeContainer then
